@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace Tools.RandomGenerator.Number
 {
-    public interface IRandomNumberGenerator
+    public static class RandomNumber
     {
+        private static readonly Random _random = new Random();
+
         /// <summary>
         /// Generate random integer number
         /// </summary>
         /// <param name="min">Min integer number</param>
         /// <param name="max">Max integer number</param>
         /// <returns>Random integer number</returns>
-        int GenerateRandomInteger( int min, int max );
+        public static int GenerateRandomInteger( int min, int max )
+        {
+            return _random.Next( min, max );
+        }
 
         /// <summary>
         /// Generate random float number
@@ -22,7 +27,10 @@ namespace Tools.RandomGenerator.Number
         /// <param name="min">Min float number</param>
         /// <param name="max">Max float number</param>
         /// <returns>Random float number</returns>
-        float GenerateRandomFloat( float min, float max );
+        public static float GenerateRandomFloat( float min, float max )
+        {
+            return (float)( _random.NextDouble() * ( max - min ) + min );
+        }
 
         /// <summary>
         /// Generate random double number
@@ -30,6 +38,9 @@ namespace Tools.RandomGenerator.Number
         /// <param name="min">Min double number</param>
         /// <param name="max">Max double number</param>
         /// <returns>Random double number</returns>
-        double GenerateRandomDouble( float min, float max );
+        public static double GenerateRandomDouble( float min, float max )
+        {
+            return _random.NextDouble() * ( max - min ) + min;
+        }
     }
 }

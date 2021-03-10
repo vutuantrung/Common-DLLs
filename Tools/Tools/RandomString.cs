@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Tools.RandomGenerator.String
 {
-    public class RandomString
+    public static class RandomString
     {
         internal static Random _random = new Random();
 
-        public string GenerateRandomAlphabeticString( int numberCharacters )
+        /// <summary>
+        /// Generate random alphabetic string by number of character
+        /// </summary>
+        /// <param name="numberCharacters">Number of character required</param>
+        /// <returns>Random alphabetic string</returns>
+        public static string GenerateRandomAlphabeticString( int numberCharacters )
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[ numberCharacters ];
